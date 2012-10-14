@@ -1,1 +1,5 @@
+#mac_os system files
+.DS_Store
+
+#program input/output files 
 /helpgen/promakh/helpgen.txt
