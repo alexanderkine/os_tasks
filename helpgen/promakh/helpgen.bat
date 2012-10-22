@@ -5,4 +5,4 @@ if "%1"=="/?" (
 	goto :eof
 )
 echo/>helpgen.txt
-for /f %%i in ('help ^| findstr /r /c:"^[A-Z]"') do help %%i 2>nul 1>>helpgen.txt
+for /f %%i in ('help ^| findstr /r /c:"^[A-Z]"') do help %%i 2>nul 1>>helpgen.txtfo
