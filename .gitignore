@@ -2,4 +2,4 @@
 .DS_Store
 
 #program input/output files 
-/helpgen/promakh/helpgen.txt
+*.txt
