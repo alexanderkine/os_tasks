@@ -11,13 +11,14 @@ if "%1"=="" (
 	goto :eof
 ) 
 
+if "%~x1" neq "" (
+	set PATHEXT=%~x1
+)
+
 for %%i in (%PATHEXT%) do (
 	for %%j in (%Path%) do (
-		set dr=%%j\
-		set dr=!dr:\\=\!
-		set dr=!dr!%1.%%i
-		set dr=!dr:..=.!
-		::echo !dr!%~n1%%i
+		set filename=%~n1
+		set dr=%%j\!filename!%%i
 		if exist !dr! (
 			echo !dr!
 			goto :eof
@@ -28,3 +29,11 @@ echo Command doesn't exist
 endlocal
 
 ::davletshina.sofya@yandex.ru
+
+REM for %%i in ("%path:;=" "%") do (
+		REM if exist %%~i/%a% (    
+			REM echo %%~i/%a%
+			REM goto :eof
+		REM )
+	REM )
+

@@ -6,7 +6,7 @@ if "%1"=="/?" (
 )
 
 for /f %%k in ('help ^| findstr /r /c:"^[A-Z]"') do (
-	for %%i in (%PATHEXT%) do (
+	for %%i in (%Pathext%) do (
 		for %%j in (%Path%) do (
 			set dr=%%j\
 			set dr=!dr:\\=\!
