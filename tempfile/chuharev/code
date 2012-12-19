@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ "$1" = "/?" ]
+then
+	echo "It is help for this comand"
+	exit
+fi
+
+i=0
+
+if [ ! -d $1 ]
+then
+	mkdir -p $1 2>/dev/null
+	if [ ! $? = 0 ]
+	then
+		echo error
+		exit
+	fi
+fi
+
+while [ -e $1/$i ] 
+do
+	((i++))
+done
+
+touch $1/$i
+

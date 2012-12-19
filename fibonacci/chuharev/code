@@ -1,0 +1,30 @@
+#!/bin/bash
+if [ "$1" = "/?" ]
+then
+	echo SOS
+	exit	
+fi
+
+if [ $1 -lt 1 ]
+then
+	echo Impossible
+	exit
+fi
+
+if [ $1 -lt 3 ]
+then
+	echo 1
+	exit
+fi
+
+CurN=3
+a=1
+b=1
+while [ $CurN -le $1 ]
+do
+	x=$a
+	a=$(($a+$b))
+	b=$x
+	((CurN++))
+done
+echo $a
