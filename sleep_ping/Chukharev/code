@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$1" = "/?" ]
+then
+	echo "help"
+	exit
+fi
+
+timeSleep=$1
+((timeSleep++))
+ping 127.0.0.1 -c $timeSleep 
