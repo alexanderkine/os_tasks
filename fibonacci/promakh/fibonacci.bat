@@ -1,4 +1,5 @@
 @echo off  
+setlocal
 set a=1
 set b=1
 
@@ -21,6 +22,11 @@ if %1 lss 3 (
 	echo 1
 	goto :eof
 )
+
+if %1 gtr 46 (
+	echo too big
+	goto :eof
+)
  
 set i=2
 
@@ -34,3 +40,5 @@ if "%i%"=="%1" (
 ) else (
 	goto :calc
 ) 
+
+endlocal

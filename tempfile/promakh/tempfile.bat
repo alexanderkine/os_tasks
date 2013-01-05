@@ -11,8 +11,17 @@ if "%1"=="" (
 	goto :eof
 )
 
+if not exist %1 (
+	echo Path not exist
+	goto :eof
+) 
+
 set oldcd=%cd%
-cd %1
+cd %1 2>nul
+if %errorlevel% gtr 0 (
+	echo path is file
+	goto :eof
+)
 
 set filename=0
 
@@ -22,6 +31,6 @@ set /A filename=%memory%+1
 if exist %filename% (
 	goto :createname
 )
-echo.>%filename%
+echo.>>%filename%
 
 cd %oldcd%

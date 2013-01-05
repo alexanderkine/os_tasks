@@ -10,5 +10,10 @@ if "%1"=="" (
 	goto :eof
 )
 
-ping 1.1.1.1 -n 1 -w %1 >null 
+for /f %%i in ('echo %1^|findstr "[^0-9]"') do (
+	echo not a number 1>&2 
+	exit /b 5
+)
+
+ping 1.1.1.1 -n 1 -w %1 >nul 
 
