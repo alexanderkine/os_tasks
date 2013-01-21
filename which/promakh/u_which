@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [[ $1 = "-h" ]]
+then
+	echo "Usage:"
+	echo "   u_which.sh command_name"
+	exit
+fi
+
+if [[ $1 = "" ]]
+then
+	echo "command name is blank"
+	exit
+fi
+
+a="$PATH:/"
+while [[ $a != "/" ]]
+do
+	CurrentDirectory=${a%%:/*}	
+	if [ -x $CurrentDirectory/$1 ]
+	then
+		echo $CurrentDirectory
+		exit
+	fi
+	a=${a##$CurrentDirectory:}
+done
+
+echo "file not found"
